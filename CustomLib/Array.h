@@ -2,7 +2,7 @@
 
 #include  <cstddef>
 #include  <utility>
-
+#include "ContainerIterator.h"
 template <typename T, std::size_t N>
 class Array {
 public:
@@ -26,7 +26,7 @@ public:
 			delete[] mValues;
 			mValues = nullptr;
 		}
-		
+
 	}
 	//copy constructor
 	Array(const Array<T, N>& other) {
@@ -37,12 +37,12 @@ public:
 	}
 	//copy operator
 	Array& operator=(const Array& other) {
-		if(mValues!= nullptr) {
+		if (mValues != nullptr) {
 			delete[] mValues;
 		}
 		mValues = new T[N];
 		for (std::size_t i = 0; i < N; i++) {
-			
+
 			mValues[i] = other.mValues[i];
 		}
 		return *this;
@@ -64,7 +64,7 @@ public:
 	const std::size_t Size() const {
 		return N;
 	}
-	T* Data(){
+	T* Data() {
 		return mValues;
 	}
 	const T* Data() const {
@@ -74,9 +74,17 @@ public:
 	T& operator[](std::size_t index) {
 		return mValues[index];
 	}
-	const T& operator[](std::size_t index) const{
+	const T& operator[](std::size_t index) const {
 		return mValues[index];
 	}
+
+	//iterator definitions
+	using Iterator = ContainerIterator<T>;
+	using Const_Iterator = ContainerIterator<const T>;
+	Iterator begin() { return Iterator(mValues); }
+	Iterator end() { return Iterator(mValues + N); }
+	Const_Iterator begin() const { return Const_Iterator(mValues); }
+	Const_Iterator end() const { return Const_Iterator(mValues + N); }
 private:
 	//T is the type we declare
 	T* mValues = nullptr;

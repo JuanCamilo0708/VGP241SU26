@@ -2,6 +2,7 @@
 #include <cstddef>
 #include <utility>
 #include <cassert>
+#include "ContainerIterator.h"
 template <typename T>
 class Vector
 {
@@ -133,6 +134,14 @@ public:
 		assert(index < mSize, "Index out of bounds");
 		return mValues[index];
 	}
+
+	//iterator definitions
+	using Iterator = ContainerIterator<T>;
+	using Const_Iterator = ContainerIterator<const T>;
+	Iterator begin() { return Iterator(mValues); }
+	Iterator end() { return Iterator(mValues + mSize); }
+	Const_Iterator begin() const { return Const_Iterator(mValues); }
+	Const_Iterator end() const { return Const_Iterator(mValues + mSize); }
 private:
 	T* mValues = nullptr;
 	std::size_t mSize = 0;
