@@ -31,11 +31,12 @@ void Inventory::DisplayInventory()
     }
     std::cout << "Diplaying Inventory\n";
     std::cout << "==========================================\n";
-    for (int i = 0; i < queue.Size(); i++)
+    for (int i = 0; i < mItems.Size(); i++)
     {
         Item item = queue.Top();
         std::cout << item.GetName() << " x" << item.GetCount() << "\n";
         queue.Pop();
+        
     }
     
 }
