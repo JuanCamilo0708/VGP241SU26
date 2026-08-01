@@ -28,6 +28,14 @@ public:
 			mSize = other.mSize;
 		}
 	}
+	//Hide This PLEASEEEEEEEEEEEEEEEEEEEe
+	void PopFront() {
+		mValues[0].~T();
+		for (std::size_t i = 0; i < mSize - 1; ++i) {
+			mValues[i] = mValues[i + 1];
+		}
+		Resize(mSize - 1);
+	}
 	Vector& operator=(const Vector<T>& other) {
 		if (mValues != nullptr) {
 			delete[] mValues;
