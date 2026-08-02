@@ -26,7 +26,7 @@ int main()
     int maxItems = 100;
     items.Resize(maxItems);
     for (int i = 0; i < maxItems; ++i) {
-        items[i].name = "ItemName" + std::to_string(i);
+        items[i].name = "ItemName: " + std::to_string(i);
         items[i].itemType = (Type)(rand() % IT_COUNT);
         switch (items[i].itemType)
         {
@@ -49,5 +49,7 @@ int main()
         const Item* item = (const Item*)(*iter);
         std::cout << "Item In Range: " << item->name << " (" << item->position.x << ", " << item->position.y << ")\n";
     }
+
+    Item* itemNearest = (Item*)itemLocations.FindNearest(&items[0].position.x);
 }
 
