@@ -5,10 +5,11 @@ void PickUpManager::AddItem(PickUpType pickUpType, const Vector3& pos)
 		std::cout << "Invalid Pick up type";
 		return;
 	}
-	PickUp pickUp(pickUpType, pos);
-	mPickUps.PushBack(pickUp);
+	mPickUps.PushBack(PickUp(pickUpType, pos));
+	PickUp* pickUp = &mPickUps[mPickUps.Size() - 1];
+	
 
-	mPositions.AddItem(&pos.x, &mPickUps[mPickUps.Size() - 1]);
+	mPositions.AddItem(&pickUp->GetPosition().x, pickUp);
 }
 
 const PickUp* PickUpManager::GetClosestPickUp(const Vector3& pos)

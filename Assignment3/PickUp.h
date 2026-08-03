@@ -34,9 +34,8 @@ public:
     std::string GetName() const {
         return mName;
     }
-    Vector3 GetPosition() const {
-        return mPosition;
-    }
+    const Vector3& GetPosition() const { return mPosition; }
+    
     PickUpType GetType() const  { 
         return mType; 
     }

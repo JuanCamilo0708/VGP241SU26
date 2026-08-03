@@ -36,7 +36,7 @@ struct Vector3
 	float DistanceSquared(const Vector3& rhs) const { return (x - rhs.x) * (x - rhs.x) + (y - rhs.y) * (y - rhs.y) + (z - rhs.z) * (z - rhs.z); }
 	float Distance(const Vector3& rhs) const { return sqrtf(DistanceSquared(rhs)); }
 
-	std::string ToString() {
+	std::string ToString() const {
 		return std::to_string(x) + ", " + std::to_string(y) + ", " + std::to_string(z);
 	}
 };

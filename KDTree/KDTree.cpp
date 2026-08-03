@@ -13,10 +13,6 @@ struct Item {
     std::string name;
     Type itemType;
     Vector2 position;
-    struct Filte {
-        Type itemType;
-
-    };
 };
 int main()
 {

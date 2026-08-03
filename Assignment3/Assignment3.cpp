@@ -37,9 +37,8 @@ int main()
     }
     // 4d. Low health: find health pickups within 50.0f
     float healthRange = 50.0f;
-    std::cout << "Hello";
+    std::cout << "Health within 50.0f of player";
     auto healthPickups = manager.ObtainPickUpskInRange(playerPos, healthRange, PickUpType::Health);
-
 
     for (const void* p : healthPickups)
     {

@@ -10,8 +10,8 @@ public:
 	Vector<const void*> ObtainPickUpskInRange(const Vector3& pos, float range, PickUpType pickUpType);
 	void BuildKD();
 
-private:
 	KDTree<float, 3> mPositions;
+private:
 	Vector<PickUp> mPickUps;
 
 };
