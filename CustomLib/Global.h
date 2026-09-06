@@ -1,13 +1,14 @@
 #pragma once
 
-#ifndef __WHATEVER__
-#define __WHATEVER__
+#ifndef __GLOBAL_HEADER__
+#define __GLOBAL_HEADER__
 
 
 
 #include <string>
 #include <functional>
 #include "Vector.h"
+#include <cmath>
 
 namespace Global {
 	//hash function
@@ -274,4 +275,4 @@ namespace Global {
 	}
 }
 
-#endif // !__WHATEVER__
+#endif // !__GLOBAL_HEADER__
